@@ -1,10 +1,11 @@
 import json
+import os
 from datetime import datetime
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 
-HOST = "localhost"
-PORT = 8000
+HOST = os.getenv("HOST", "0.0.0.0")
+PORT = int(os.getenv("PORT", "8000"))
 SUBMISSIONS = []
 
 
