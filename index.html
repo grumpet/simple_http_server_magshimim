@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Localhost Form Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <div class="hero">
+        <p class="eyebrow">HTTP Local Form</p>
+        <h1>Simple validation form</h1>
+        <p class="subtitle">
+          Each field accepts a specific kind of input such as letters only,
+          numbers only, email, radio buttons, and checkboxes.
+        </p>
+      </div>
+
+      <form id="demo-form" novalidate>
+        <div class="field-grid">
+          <div class="field">
+            <label for="fullName"><span>Full Name</span></label>
+            <div class="field-control">
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                inputmode="text"
+                autocomplete="name"
+                placeholder="Letters only"
+                required
+              >
+              <button type="button" class="field-submit" data-submit-key="fullName">Submit</button>
+            </div>
+            <small>Only letters and spaces are allowed.</small>
+          </div>
+
+          <div class="field">
+            <label for="age"><span>Age</span></label>
+            <div class="field-control">
+              <input
+                id="age"
+                name="age"
+                type="text"
+                inputmode="numeric"
+                placeholder="Numbers only"
+                maxlength="3"
+                pattern="[0-9]{1,3}"
+                required
+              >
+              <button type="button" class="field-submit" data-submit-key="age">Submit</button>
+            </div>
+            <small>Numbers only, from 1 to 120.</small>
+          </div>
+
+          <div class="field">
+            <label for="email"><span>Email</span></label>
+            <div class="field-control">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="name@example.com"
+                required
+              >
+              <button type="button" class="field-submit" data-submit-key="email">Submit</button>
+            </div>
+            <small>Must be a valid email address.</small>
+          </div>
+
+          <div class="field">
+            <label for="phone"><span>Phone Number</span></label>
+            <div class="field-control">
+              <input
+                id="phone"
+                name="phone"
+                type="text"
+                inputmode="numeric"
+                placeholder="10 digits"
+                maxlength="10"
+                pattern="[0-9]{10}"
+                required
+              >
+              <button type="button" class="field-submit" data-submit-key="phone">Submit</button>
+            </div>
+            <small>Exactly 10 digits.</small>
+          </div>
+
+          <div class="field">
+            <label for="birthDate"><span>Birth Date</span></label>
+            <div class="field-control">
+              <input
+                id="birthDate"
+                name="birthDate"
+                type="date"
+                required
+              >
+              <button type="button" class="field-submit" data-submit-key="birthDate">Submit</button>
+            </div>
+            <small>Pick a valid date.</small>
+          </div>
+
+          <div class="field">
+            <label for="subject"><span>Favorite Subject</span></label>
+            <div class="field-control">
+              <select id="subject" name="subject" required>
+                <option value="">Choose one</option>
+                <option value="math">Math</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+                <option value="english">English</option>
+              </select>
+              <button type="button" class="field-submit" data-submit-key="subject">Submit</button>
+            </div>
+            <small>Select one option from the list.</small>
+          </div>
+        </div>
+
+        <fieldset class="radio-group">
+          <legend>Gender</legend>
+          <div class="group-actions">
+            <div class="radio-options">
+              <label>
+                <input type="radio" name="gender" value="Male" required>
+                <span>Male</span>
+              </label>
+              <label>
+                <input type="radio" name="gender" value="Female">
+                <span>Female</span>
+              </label>
+              <label>
+                <input type="radio" name="gender" value="Other">
+                <span>Other</span>
+              </label>
+            </div>
+            <button type="button" class="field-submit" data-submit-key="gender">Submit</button>
+          </div>
+        </fieldset>
+
+        <div class="checkbox-section">
+          <label class="checkbox-row">
+            <input id="terms" name="terms" type="checkbox" required>
+            <span>I confirm that the information above is correct.</span>
+          </label>
+          <button type="button" class="field-submit" data-submit-key="terms">Submit</button>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="ghost">Clear</button>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite"></p>
+      </form>
+
+      <section id="result-card" class="result-card hidden" aria-live="polite">
+        <h2>Submitted Values</h2>
+        <div id="result-output"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
